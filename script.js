@@ -3,7 +3,7 @@ const checkBtn = document.getElementById("check-btn");
 const clearBtn = document.getElementById("clear-btn");
 const output = document.getElementById("results-div");
 
-const regex = /^1? ?(\(\d{3}\)|\d{3})[ -]?\d{3}[ -]?\d{4}$/;
+const regex = /^1? ?(\(\d{3}\)\s?\d{3}-\d{4}|\d{3}-\d{3}-\d{4}|\d{10})$/;
 const outputArr = [];
 
 const checkInput = (str) => {
@@ -23,3 +23,13 @@ const updateOutput = (array) => {
     output.innerHTML += `<h2 class="output-text">${el}</h2>`;
   });
 };
+
+const clearOutput = () => {
+  outputArr.length = 0;
+  output.innerHTML = "";
+};
+
+checkBtn.addEventListener("click", () => {
+  checkInput(userInput.value);
+  userInput.value = "";
+});
