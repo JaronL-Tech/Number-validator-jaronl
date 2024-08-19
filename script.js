@@ -3,8 +3,16 @@ const checkBtn = document.getElementById("check-btn");
 const clearBtn = document.getElementById("clear-btn");
 const output = document.getElementById("results-div");
 
-const regex = /^1? ?(\(\d{3}\)\s?\d{3}-\d{4}|\d{3}-\d{3}-\d{4}|\d{10})$/;
-const outputArr = [];
+const validNumber = () => {
+  let regex = /^(1\s?)?(\d{3}|\(\d{3}\))[\-\s]?\d{3}[\-\s]?\d{4}$/;
+  let regexTest = regex.test(input.value);
+
+  if (regexTest === true) {
+    result.innerText = `Valid US number: ${input.value}`;
+  } else {
+    result.innerText = `Invalid US number: ${input.value}`;
+  }
+};
 
 const checkInput = (str) => {
   if (userInput.value === "") {
