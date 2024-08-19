@@ -17,3 +17,9 @@ const checkInput = (str) => {
     updateOutput(outputArr);
   }
 };
+const updateOutput = (array) => {
+  output.innerHTML = "";
+  array.forEach((el) => {
+    output.innerHTML += `<h2 class="output-text">${el}</h2>`;
+  });
+};
